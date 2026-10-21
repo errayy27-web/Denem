@@ -1,0 +1,26 @@
+workflows:
+  android-debug:
+    name: SS OIL Android test APK
+    max_build_duration: 60
+   
+    environment:
+      flutter: stable
+    scripts:
+      - name: Create complete Flutter Android scaffold
+        script: |
+          set -eu
+          mkdir -p /tmp/ssoil_generated
+          cd /tmp/ssoil_generated
+          flutter create --platforms=android --org com.ssoil --project-name ss_oil_stok_kontrol .
+          cd "$CM_BUILD_DIR"
+          cp -R /tmp/ssoil_generated/android ./android_scaffold
+          cp -R android/app/src/main/. android_scaffold/app/src/main/
+          rm -rf android
+          mv android_scaffold android
+          # The generated namespace must match our Kotlin activity and service package.
+          python3 -c "from pathlib import Path; p=Path('android/app/build.gradle.kts'); s=p.read_text().replace('com.ssoil.ss_oil_stok_kontrol','com.ssoil.stokkontrol').replace('compileSdk = flutter.compileSdkVersion','compileSdk = 36'); p.write_text(s)"
+          flutter pub get
+      - name: Build Android debug APK
+        script: flutter build apk --debug
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk

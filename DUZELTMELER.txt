@@ -1,0 +1,1 @@
+file_picker güncellendi; compileSdk 36; sed yerine Python; Popis raw_text okuma düzeltildi. Popis otomatik ürün ayrıştırma henüz desteklenmiyor. Gerçek APK derlemesi bu ortamda test edilmedi.
