@@ -18,7 +18,7 @@ workflows:
           rm -rf android
           mv android_scaffold android
           # The generated namespace must match our Kotlin activity and service package.
-          sed -i 's/com.ssoil.ss_oil_stok_kontrol/com.ssoil.stokkontrol/g' android/app/build.gradle.kts
+          sed -i '' 's/com.ssoil.ss_oil_stok_kontrol/com.ssoil.stokkontrol/g' android/app/build.gradle.kts
           flutter pub get
       - name: Build Android debug APK
         script: flutter build apk --debug
