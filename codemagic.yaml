@@ -2,7 +2,7 @@ workflows:
   android-debug:
     name: SS OIL Android test APK
     max_build_duration: 60
-    instance_type: linux_x2
+    instance_type: linux_x2_4
     environment:
       flutter: stable
     scripts:
