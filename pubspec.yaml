@@ -1,0 +1,18 @@
+name: ss_oil_stok_kontrol
+description: SS OIL stok ve siparis kontrolu
+publish_to: none
+version: 1.0.0+1
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  mobile_scanner: ^7.0.0
+  excel: ^4.0.6
+  shared_preferences: ^2.3.2
+  path_provider: ^2.1.4
+  share_plus: ^10.1.4
+  file_picker: ^8.1.4
+  csv: ^6.0.0
+flutter:
+  uses-material-design: true
