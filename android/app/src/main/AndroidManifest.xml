@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+ <uses-permission android:name="android.permission.CAMERA" />
+ <queries><intent><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent></queries>
+ <application android:label="SS OIL Stok Kontrol" android:name="${applicationName}">
+  <activity android:name=".MainActivity" android:exported="true" android:launchMode="singleTop" android:theme="@android:style/Theme.Material.Light.NoActionBar" android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode" android:windowSoftInputMode="adjustResize">
+   <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>
+  </activity>
+  <service android:name=".PopisAccessibilityService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" android:exported="false">
+   <intent-filter><action android:name="android.accessibilityservice.AccessibilityService"/></intent-filter>
+   <meta-data android:name="android.accessibilityservice" android:resource="@xml/popis_accessibility" />
+  </service>
+ </application>
+</manifest>
